@@ -24,7 +24,7 @@ def get_estimated_price(location, sqft, bhk, bath):
     price=round(__model.predict([x])[0], 2)
     label4 = Label(window, text=str(price)+" Lakhs", relief="solid",
                    width=24, font=("arial", 14, "bold"))
-    label4.place(x=140, y=260)
+    label4.place(x=140, y=340)
     return price
 def get_location_names():
     return __locations
@@ -84,20 +84,20 @@ var2.set("Select Bathroom")
 droplist.config(width=15)
 droplist.place(x=300, y=220)
 
-def second_win():
-    window2 = Tk()
-    window2.geometry('350x350')
-    window2.title("Price")
-    label = Label(window2, text="Predicted Price", font=("arial", '12', 'bold'))
-    label.place(x=100, y=30)
-    price = get_estimated_price(var.get(), float(fn.get()), var1.get(), var2.get())
-
-    label_ = Label(window2, text=str(price)+" Lakhs", font=("arial", '12', 'bold'))
-    label_.place(x=100, y=150)
-    b_2 = Button(window2, text="Exit", width=12, bg='brown', fg='white', command=exit1)
-    b_2.place(x=125, y=300)
-
-b_p = Button(window, text="PREDICT", width=50, bg='brown', fg='white', command=second_win)
+# def second_win():
+#     window2 = Tk()
+#     window2.geometry('350x350')
+#     window2.title("Price")
+#     label = Label(window2, text="Predicted Price", font=("arial", '12', 'bold'))
+#     label.place(x=100, y=30)
+#     price = get_estimated_price(var.get(), float(fn.get()), var1.get(), var2.get())
+#
+#     label_ = Label(window2, text=str(price)+" Lakhs", font=("arial", '12', 'bold'))
+#     label_.place(x=100, y=150)
+#     b_2 = Button(window2, text="Exit", width=12, bg='brown', fg='white', command=exit1)
+#     b_2.place(x=125, y=300)
+#
+b_p = Button(window, text="PREDICT", width=50, bg='brown', fg='white', command=lambda:get_estimated_price(var.get(), float(fn.get()), var1.get(), var2.get()))
 b_p.place(x=100, y=280)
 
 
